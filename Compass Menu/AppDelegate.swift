@@ -201,41 +201,55 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         menu.addItem(NSMenuItem.separator())
         
+        let otherMenuItem = NSMenuItem()
+        otherMenuItem.title = "About"
+        otherMenuItem.isEnabled = true
+        
+        let otherSubmenu = NSMenu()
+        
         let infoMenuItem = NSMenuItem()
         infoMenuItem.title = "\(getUsername())'s Device Info:"
         infoMenuItem.isEnabled = false
-        menu.addItem(infoMenuItem)
+        otherSubmenu.addItem(infoMenuItem)
         let spaceMenuItem = NSMenuItem()
         spaceMenuItem.title = "--"
         spaceMenuItem.isEnabled = false
-        menu.addItem(spaceMenuItem)
+        otherSubmenu.addItem(spaceMenuItem)
         
         let nameMenuItem = NSMenuItem()
         nameMenuItem.title = "Username: \(NSUserName())"
         nameMenuItem.isEnabled = false
-        menu.addItem(nameMenuItem)
+        otherSubmenu.addItem(nameMenuItem)
         
         let ipMenuItem = NSMenuItem()
         ipMenuItem.title = "IP Address: \(getIFAddresses()[1])"
         ipMenuItem.isEnabled = false
-        menu.addItem(ipMenuItem)
+        otherSubmenu.addItem(ipMenuItem)
         
         let serialNumberMenuItem = NSMenuItem()
         serialNumberMenuItem.title = "Serial Number: \(serialNumber!)"
         serialNumberMenuItem.isEnabled = false
-        menu.addItem(serialNumberMenuItem)
+        otherSubmenu.addItem(serialNumberMenuItem)
         
         let osMenuItem = NSMenuItem()
         osMenuItem.title = "macOS Version: \(ProcessInfo.processInfo.operatingSystemVersion.majorVersion).\(ProcessInfo.processInfo.operatingSystemVersion.minorVersion).\(ProcessInfo.processInfo.operatingSystemVersion.patchVersion)"
         osMenuItem.isEnabled = false
-        menu.addItem(osMenuItem)
+        otherSubmenu.addItem(osMenuItem)
         
         let lastRestartMenuItem = NSMenuItem()
         lastRestartMenuItem.title = "Last Restart: \(formatDate(date: bootTime()!))"
         lastRestartMenuItem.isEnabled = false
-        menu.addItem(lastRestartMenuItem)
+        otherSubmenu.addItem(lastRestartMenuItem)
         
-        menu.addItem(NSMenuItem(title: "Other", action: #selector(AppDelegate.explore(_:)), keyEquivalent: ""))
+        otherSubmenu.addItem(NSMenuItem.separator())
+        
+        let signature = NSMenuItem()
+        signature.title = "Created by Ben Swift. Fueled by 🦞 in Maine."
+        signature.isEnabled = false
+        otherSubmenu.addItem(signature)
+        
+        otherMenuItem.submenu = otherSubmenu
+        menu.addItem(otherMenuItem)
         
         statusItem.menu = menu
     }
