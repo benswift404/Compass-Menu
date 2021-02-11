@@ -226,7 +226,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(serialNumberMenuItem)
         
         let osMenuItem = NSMenuItem()
-        osMenuItem.title = "Version: macOS \(ProcessInfo.processInfo.operatingSystemVersion.majorVersion).\(ProcessInfo.processInfo.operatingSystemVersion.minorVersion).\(ProcessInfo.processInfo.operatingSystemVersion.patchVersion)"
+        osMenuItem.title = "macOS Version: \(ProcessInfo.processInfo.operatingSystemVersion.majorVersion).\(ProcessInfo.processInfo.operatingSystemVersion.minorVersion).\(ProcessInfo.processInfo.operatingSystemVersion.patchVersion)"
         osMenuItem.isEnabled = false
         menu.addItem(osMenuItem)
         
