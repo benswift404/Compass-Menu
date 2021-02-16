@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         if let button = statusItem.button {
-            button.image = NSImage(named: NSImage.Name("MenuIcon"))
+            button.image = NSImage(named: NSImage.Name("G"))
         }
         constructMenu()
         
@@ -199,6 +199,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         explore.image = exploreImage
         menu.addItem(explore)
         
+        let drive = NSMenuItem()
+        drive.title = "Common Drive"
+        drive.isEnabled = true
+        drive.action = #selector(AppDelegate.explore(_:))
+        let driveImage = NSImage(named: "folder")
+        driveImage?.size = NSSize(width: 15, height: 15)
+        drive.image = driveImage
+        menu.addItem(drive)
+        
         menu.addItem(NSMenuItem.separator())
         
         let otherMenuItem = NSMenuItem()
@@ -249,9 +258,100 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         otherSubmenu.addItem(signature)
         
         otherMenuItem.submenu = otherSubmenu
+        
+        let help = NSMenuItem()
+        help.title = "Help"
+        help.isEnabled = true
+        help.submenu = troubleShootSubMenu()
+        
+        menu.addItem(help)
         menu.addItem(otherMenuItem)
         
         statusItem.menu = menu
+    }
+    
+    func troubleShootSubMenu() -> NSMenu {
+        
+        let helpSubmenu = NSMenu()
+        
+        let infoMenuItem = NSMenuItem()
+        infoMenuItem.title = "Troubleshooting 101"
+        infoMenuItem.isEnabled = false
+        helpSubmenu.addItem(infoMenuItem)
+        let spaceMenuItem = NSMenuItem()
+        spaceMenuItem.title = "--"
+        spaceMenuItem.isEnabled = false
+        helpSubmenu.addItem(spaceMenuItem)
+        
+        let restartTextMenuItem = NSMenuItem()
+        restartTextMenuItem.title = "1. Restart your machine:"
+        restartTextMenuItem.isEnabled = false
+        helpSubmenu.addItem(restartTextMenuItem)
+        
+        let restartMenuItem = NSMenuItem()
+        restartMenuItem.title = "Restart now"
+        restartMenuItem.isEnabled = true
+        restartMenuItem.action = #selector(AppDelegate.restart(_:))
+        helpSubmenu.addItem(restartMenuItem)
+        
+        let updateTextMenuItem = NSMenuItem()
+        updateTextMenuItem.title = "2. Check for updates:"
+        updateTextMenuItem.isEnabled = false
+        helpSubmenu.addItem(updateTextMenuItem)
+        
+        let updateMenuItem = NSMenuItem()
+        updateMenuItem.title = "Check for updates"
+        updateMenuItem.isEnabled = true
+        updateMenuItem.action = #selector(AppDelegate.update(_:))
+        helpSubmenu.addItem(updateMenuItem)
+        
+        helpSubmenu.addItem(NSMenuItem.separator())
+        
+        let screenshotTextMenuItem = NSMenuItem()
+        screenshotTextMenuItem.title = "Other Tools:"
+        screenshotTextMenuItem.isEnabled = false
+        helpSubmenu.addItem(screenshotTextMenuItem)
+        
+        let screenshotMenuItem = NSMenuItem()
+        screenshotMenuItem.title = "Take a Screenshot"
+        screenshotMenuItem.isEnabled = true
+        screenshotMenuItem.action = #selector(AppDelegate.screenshot(_:))
+        helpSubmenu.addItem(screenshotMenuItem)
+        
+        let signature = NSMenuItem()
+        signature.title = "Launch Remote Support"
+        signature.isEnabled = true
+        signature.action = #selector(AppDelegate.remoteSupport(_:))
+        helpSubmenu.addItem(signature)
+        
+        return helpSubmenu
+    }
+    
+    @objc func restart(_ sender: Any?) {
+        let source = "tell application \"Finder\"\nrestart\nend tell"
+        let script = NSAppleScript(source: source)
+        script?.executeAndReturnError(nil)
+    }
+    
+    @objc func update(_ sender: Any?) {
+        print("test")
+    }
+    
+    @objc func screenshot(_ sender: Any?) {
+        let screenshotProcess = Process()
+        screenshotProcess.executableURL = URL(fileURLWithPath: "/usr/sbin/screencapture")
+        screenshotProcess.arguments = ["/Users/\(NSUserName())/Desktop/screenshot.png"]
+        do {
+            try screenshotProcess.run()
+            print("Success!")
+        } catch {
+            print("Error taking screenshot")
+        }
+    }
+    
+    @objc func remoteSupport(_ sender: Any?) {
+        NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/VNC" + " Connect.app"))
+        print("/Applications/VNC" + " Connect.app")
     }
 
 }
