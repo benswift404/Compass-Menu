@@ -344,8 +344,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         do {
             try screenshotProcess.run()
             print("Success!")
+            let alert = NSAlert()
+            alert.messageText = "Took Screenshot!"
+            alert.informativeText = "Your screenshot have been saved to your desktop."
+            alert.alertStyle = .informational
+            alert.addButton(withTitle: "OK")
+            alert.runModal()
         } catch {
             print("Error taking screenshot")
+            NSSound.beep()
+            let alert = NSAlert()
+            alert.messageText = "Error!"
+            alert.informativeText = "There was an error taking screenshot. Try again"
+            alert.alertStyle = .informational
+            alert.addButton(withTitle: "OK")
+            alert.runModal()
         }
     }
     
