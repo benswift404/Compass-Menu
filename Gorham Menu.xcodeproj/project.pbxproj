@@ -14,7 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14105A7525D458B3000A0559 /* Compass Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Compass Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14105A7525D458B3000A0559 /* Gorham Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gorham Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14105A7825D458B3000A0559 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14105A7A25D458B3000A0559 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		14105A7C25D458B5000A0559 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		14105A7625D458B3000A0559 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14105A7525D458B3000A0559 /* Compass Menu.app */,
+				14105A7525D458B3000A0559 /* Gorham Menu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,9 +68,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		14105A7425D458B3000A0559 /* Compass Menu */ = {
+		14105A7425D458B3000A0559 /* Gorham Menu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14105A8525D458B5000A0559 /* Build configuration list for PBXNativeTarget "Compass Menu" */;
+			buildConfigurationList = 14105A8525D458B5000A0559 /* Build configuration list for PBXNativeTarget "Gorham Menu" */;
 			buildPhases = (
 				14105A7125D458B3000A0559 /* Sources */,
 				14105A7225D458B3000A0559 /* Frameworks */,
@@ -80,9 +80,9 @@
 			);
 			dependencies = (
 			);
-			name = "Compass Menu";
+			name = "Gorham Menu";
 			productName = "Compass Menu";
-			productReference = 14105A7525D458B3000A0559 /* Compass Menu.app */;
+			productReference = 14105A7525D458B3000A0559 /* Gorham Menu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 14105A7025D458B3000A0559 /* Build configuration list for PBXProject "Compass Menu" */;
+			buildConfigurationList = 14105A7025D458B3000A0559 /* Build configuration list for PBXProject "Gorham Menu" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14105A7425D458B3000A0559 /* Compass Menu */,
+				14105A7425D458B3000A0559 /* Gorham Menu */,
 			);
 		};
 /* End PBXProject section */
@@ -278,6 +278,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Compass Menu/Compass_Menu.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = YR3GAW7JNW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Compass Menu/Info.plist";
@@ -302,6 +303,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Compass Menu/Compass_Menu.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = YR3GAW7JNW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Compass Menu/Info.plist";
@@ -319,7 +321,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14105A7025D458B3000A0559 /* Build configuration list for PBXProject "Compass Menu" */ = {
+		14105A7025D458B3000A0559 /* Build configuration list for PBXProject "Gorham Menu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14105A8325D458B5000A0559 /* Debug */,
@@ -328,7 +330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14105A8525D458B5000A0559 /* Build configuration list for PBXNativeTarget "Compass Menu" */ = {
+		14105A8525D458B5000A0559 /* Build configuration list for PBXNativeTarget "Gorham Menu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14105A8625D458B5000A0559 /* Debug */,

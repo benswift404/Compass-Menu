@@ -275,7 +275,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let helpSubmenu = NSMenu()
         
         let infoMenuItem = NSMenuItem()
-        infoMenuItem.title = "Troubleshooting 101"
+        infoMenuItem.title = "Troubleshooting Basics"
         infoMenuItem.isEnabled = false
         helpSubmenu.addItem(infoMenuItem)
         let spaceMenuItem = NSMenuItem()
@@ -312,11 +312,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         screenshotTextMenuItem.isEnabled = false
         helpSubmenu.addItem(screenshotTextMenuItem)
         
-        let screenshotMenuItem = NSMenuItem()
-        screenshotMenuItem.title = "Take a Screenshot"
-        screenshotMenuItem.isEnabled = true
-        screenshotMenuItem.action = #selector(AppDelegate.screenshot(_:))
-        helpSubmenu.addItem(screenshotMenuItem)
+//        let screenshotMenuItem = NSMenuItem()
+//        screenshotMenuItem.title = "Take a Screenshot"
+//        screenshotMenuItem.isEnabled = true
+//        screenshotMenuItem.action = #selector(AppDelegate.screenshot(_:))
+//        helpSubmenu.addItem(screenshotMenuItem)
         
         let signature = NSMenuItem()
         signature.title = "Launch Remote Support"
@@ -334,7 +334,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func update(_ sender: Any?) {
-        print("test")
+        NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/Self" + " Service.app"))
+        print("/Applications/Self" + " Service.app")
     }
     
     @objc func screenshot(_ sender: Any?) {
