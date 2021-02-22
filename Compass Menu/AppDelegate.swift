@@ -52,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func jumprope(_ sender: Any?) {
-        if let url = URL(string: "https://campus.gorhamschools.org/campus/portal/gorham.jsp"),
+        if let url = URL(string: "https://services.jumpro.pe/login/"),
              NSWorkspace.shared.open(url) {
             print("Success!")
         }
@@ -283,27 +283,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         spaceMenuItem.isEnabled = false
         helpSubmenu.addItem(spaceMenuItem)
         
-        let restartTextMenuItem = NSMenuItem()
-        restartTextMenuItem.title = "1. Restart your machine:"
-        restartTextMenuItem.isEnabled = false
-        helpSubmenu.addItem(restartTextMenuItem)
+//        let restartTextMenuItem = NSMenuItem()
+//        restartTextMenuItem.title = "1. Restart your machine:"
+//        restartTextMenuItem.isEnabled = false
+//        helpSubmenu.addItem(restartTextMenuItem)
         
         let restartMenuItem = NSMenuItem()
-        restartMenuItem.title = "Restart now"
+        restartMenuItem.title = "Restart Laptop"
         restartMenuItem.isEnabled = true
         restartMenuItem.action = #selector(AppDelegate.restart(_:))
         helpSubmenu.addItem(restartMenuItem)
         
         let updateTextMenuItem = NSMenuItem()
-        updateTextMenuItem.title = "2. Check for updates:"
-        updateTextMenuItem.isEnabled = false
+        updateTextMenuItem.title = "Remove Extensions"
+        updateTextMenuItem.isEnabled = true
+        updateTextMenuItem.action = #selector(AppDelegate.update(_:))
         helpSubmenu.addItem(updateTextMenuItem)
         
         let updateMenuItem = NSMenuItem()
-        updateMenuItem.title = "Check for updates"
+        updateMenuItem.title = "Check for Updates"
         updateMenuItem.isEnabled = true
         updateMenuItem.action = #selector(AppDelegate.update(_:))
         helpSubmenu.addItem(updateMenuItem)
+        
+        let submitTicketItem = NSMenuItem()
+        submitTicketItem.title = "Contact Us"
+        submitTicketItem.isEnabled = true
+        submitTicketItem.action = #selector(AppDelegate.update(_:))
+        helpSubmenu.addItem(submitTicketItem)
         
         helpSubmenu.addItem(NSMenuItem.separator())
         
@@ -312,17 +319,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         screenshotTextMenuItem.isEnabled = false
         helpSubmenu.addItem(screenshotTextMenuItem)
         
-//        let screenshotMenuItem = NSMenuItem()
-//        screenshotMenuItem.title = "Take a Screenshot"
-//        screenshotMenuItem.isEnabled = true
-//        screenshotMenuItem.action = #selector(AppDelegate.screenshot(_:))
-//        helpSubmenu.addItem(screenshotMenuItem)
-        
         let signature = NSMenuItem()
         signature.title = "Launch Remote Support"
         signature.isEnabled = true
         signature.action = #selector(AppDelegate.remoteSupport(_:))
         helpSubmenu.addItem(signature)
+        
+        let screenshotMenuItem = NSMenuItem()
+        screenshotMenuItem.title = "Take a Screenshot"
+        screenshotMenuItem.isEnabled = true
+        screenshotMenuItem.action = #selector(AppDelegate.screenshot(_:))
+        helpSubmenu.addItem(screenshotMenuItem)
         
         return helpSubmenu
     }
@@ -334,7 +341,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func update(_ sender: Any?) {
-        NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/Self" + " Service.app"))
+        NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/Gorham" + " App" + " Portal.app"))
         print("/Applications/Self" + " Service.app")
     }
     
